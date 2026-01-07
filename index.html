@@ -16,14 +16,29 @@
 
             <article>
                 <h3>Job Scheduler</h3>
+
                 <p>
-                    <strong>Problem:</strong> Background jobs need reliability
-                    and retry handling.
+                    <strong>Problem</strong><br />
+                    Background jobs need to run reliably, handle retries, and
+                    avoid duplicated execution.
                 </p>
-                <p><strong>Tech:</strong> Go</p>
+
                 <p>
-                    <strong>Why:</strong> Simpler concurrency model and
-                    predictable performance.
+                    <strong>Decision</strong><br />
+                    I implemented a simple worker loop using Go channels instead
+                    of cron-based scheduling.
+                </p>
+
+                <p>
+                    <strong>Trade-offs</strong><br />
+                    This approach is easy to reason about and test, but it
+                    requires the process to be always running and is not
+                    suitable for distributed scheduling without coordination.
+                </p>
+
+                <p>
+                    <strong>Tech</strong><br />
+                    Go, goroutines, channels
                 </p>
             </article>
         </section>
