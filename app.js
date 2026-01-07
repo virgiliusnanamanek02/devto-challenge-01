@@ -1,18 +1,35 @@
 function ask() {
-  const question = document.getElementById("question").value;
+  const q = document.getElementById("question").value;
   const answer = document.getElementById("answer");
 
-  if (!question) {
+  if (!q) {
     answer.textContent = "Please ask something.";
     return;
   }
 
-  if (question.includes("why")) {
-    answer.textContent =
-      "I chose a worker loop because it gives explicit control over concurrency and retry logic, which is easier to reason about than cron-based scheduling.";
-    return;
-  }
+  const prompt = buildPrompt(q);
 
   answer.textContent =
-    "This portfolio highlights backend decision-making and trade-offs. Try asking 'Why did you choose Go?'";
+    "Using a worker loop gives explicit control over concurrency and retries. This makes the system easier to reason about and debug compared to cron-based scheduling.";
+
+  console.log("PROMPT SENT TO AI:", prompt);
+}
+
+function buildPrompt(userQuestion) {
+  return `
+You are an AI assistant for a backend developer portfolio.
+
+Portfolio context:
+- Owner: Vicky Nana
+- Role: Backend Developer (Go / Java)
+- Project: Job Scheduler
+- Problem: Reliable background job execution
+- Decision: Worker loop using Go channels
+- Trade-offs: Simpler logic but not distributed
+
+User question:
+"${userQuestion}"
+
+Answer clearly and concisely. Focus on reasoning, not code.
+`;
 }
