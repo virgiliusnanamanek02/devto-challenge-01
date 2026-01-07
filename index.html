@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Vicky Nana — Backend Developer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Vicky Nana</h1>
+            <p>Backend Developer (Go / Java)</p>
+        </header>
+
+        <section>
+            <h2>Projects</h2>
+
+            <article>
+                <h3>Job Scheduler</h3>
+                <p>
+                    <strong>Problem:</strong> Background jobs need reliability
+                    and retry handling.
+                </p>
+                <p><strong>Tech:</strong> Go</p>
+                <p>
+                    <strong>Why:</strong> Simpler concurrency model and
+                    predictable performance.
+                </p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Ask My Portfolio</h2>
+            <textarea
+                id="question"
+                placeholder="Ask about my projects..."
+            ></textarea>
+            <button onclick="ask()">Ask</button>
+            <pre id="answer">AI response will appear here.</pre>
+        </section>
+
+        <script src="app.js"></script>
+    </body>
+</html>
