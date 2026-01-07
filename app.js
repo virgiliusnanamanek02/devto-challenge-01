@@ -1,15 +1,23 @@
-function ask() {
-  const q = document.getElementById("question").value;
-  const answer = document.getElementById("answer");
+document.addEventListener("DOMContentLoaded", () => {
+  const askBtn = document.getElementById("askBtn");
+  const questionInput = document.getElementById("question");
+  const answerOutput = document.getElementById("answer");
 
-  if (!q) {
-    answer.textContent = "Please ask something.";
+  askBtn.addEventListener("click", () => {
+    handleAsk(questionInput.value, answerOutput);
+  });
+});
+
+function handleAsk(question, answerOutput) {
+  if (!question) {
+    answerOutput.textContent = "Please ask something.";
     return;
   }
 
-  const prompt = buildPrompt(q);
+  const prompt = buildPrompt(question);
 
-  answer.textContent =
+  // Simulated AI response
+  answerOutput.textContent =
     "Using a worker loop gives explicit control over concurrency and retries. This makes the system easier to reason about and debug compared to cron-based scheduling.";
 
   console.log("PROMPT SENT TO AI:", prompt);
